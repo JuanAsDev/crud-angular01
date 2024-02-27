@@ -1,0 +1,33 @@
+<div class="container mt-5">
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+            <label for="productName">ProductName</label>
+            <input type="text" class="form-control" formControlName="product_name">
+            <div *ngIf="submitted && form.controls['product_name'].errors" class="error">
+                <div *ngIf="form.controls['product_name'].errors && form.controls['product_name'].errors['required']">
+                    Nama Produk harus
+                    diisi</div>
+
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="stock">Stock</label>
+            <input type="number" class="form-control" formControlName="stock">
+        </div>
+
+        <div class="form-group">
+            <label for="price">Price</label>
+            <input type="number" class="form-control" formControlName="price">
+        </div>
+
+        <div class="form-group">
+            <label for="photo">Photo</label>
+            <input type="file" class="form-control" formControlName="photo">
+        </div>
+
+        <button type="submit" class="btn btn-primary">Submit</button>
+        <button type="button" class="btn btn-primary ml-1" [routerLink]="['/products']">Cancel</button>
+
+    </form>
+</div>

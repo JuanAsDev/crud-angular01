@@ -1,0 +1,41 @@
+<div class="container">
+    <div class="btn-toolbar" role="toolbar">
+        <div class="btn-group">
+            <div class="btn btn-outline-white btn-rounded btn-sm px-2" (click)="addProduct()"><i
+                    class="bi bi-plus-circle"></i></div>
+        </div>
+    </div>
+
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th scope="col">id</th>
+                <th scope="col">name</th>
+                <th scope="col">stock</th>
+                <th scope="col">price</th>
+                <th scope="col">photo</th>
+                <th scope="col">action</th>
+            </tr>
+        </thead>
+        <tbody *ngFor="let prod of products; let i = index">
+            <tr>
+                <th scope="row">{{i+1}}</th>
+                <td>{{prod.name}}</td>
+                <td>{{prod.stock}}</td>
+                <td>{{prod.price}}</td>
+                <td>{{prod.photo}}</td>
+
+                <td>
+                    <button type="button" class="btn btn-link m-2" (click)="editProduct(prod.id)"><i
+                            class="bi bi-pencil"></i></button>
+
+
+
+                    <button type="button" class="btn btn-link" (click)="deleteProduct(prod)"><i
+                            class="bi bi-trash"></i></button>
+
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
